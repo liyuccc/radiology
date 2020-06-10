@@ -1,0 +1,41 @@
+setting:
+#  normalize: True # set to True to enable normalizing before any resampling
+#  normalizeScale: # float >0 determine the scale after normalizing
+  binWidth: 25
+  label: 1
+  normalize: True
+#  normalizeScale: 255
+  resampledPixelSpacing: [0.76, 0.76, 0.90] # This disables resampling, as it is interpreted as None, to enable it, specify spacing in x, y, z as [x, y , z]
+  interpolator: 'sitkBSpline' # This is an enumerated value, here None is not allowed
+  weightingNorm: # If no value is specified, it is interpreted as None
+
+
+# Image types to use: "Original" for unfiltered image, for possible filters, see documentation.
+imageType:
+  Original: {} # no filter applied
+  Wavelet: # 3D discrete wavelet transform
+    binWidth: 25
+  Square: {}
+  SquareRoot: {}
+  Logarithm: {}
+  Exponential: {}
+  LoG: {sigma: [0.5, 1.0, 2.0, 3.0, 4.0]} # edge enhancement filter
+#  Square: {} # square of image intensities and scale them to original range
+#  SquareRoot: {} # square root of image intensities and scale them to original range
+#  Logarithm: {} # log absolute intensity +1 and scale to original range
+#  Exponential: {} # exponential, filter intensity is e^intensity and scale them to original range
+  Gradient: {} # return the magnitude of local intensity
+#  LocalBinaryPattern2D: {}
+#  LocalBinaryPattern3D: {}
+
+
+
+# Featureclasses, from which features must be calculated.
+featureClass:
+  shape:
+  firstorder:
+  glcm:
+  glrlm:
+#  glszm:
+  gldm:
+  ngtdm:
