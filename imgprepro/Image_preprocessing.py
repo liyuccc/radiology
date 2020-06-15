@@ -1,7 +1,7 @@
 import numpy as np
 import nibabel as nib
 import skimage.io as io
-import numpy as np
+
 
 
 def normalize_data(data, mean, std):
